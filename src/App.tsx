@@ -27,13 +27,13 @@ function App() {
 
 		if(file && file.size > 0) {
 			setUpload(true);
-			let result = await Photos.insert(file);
+			const result = await Photos.insert(file);
 			setUpload(false);
 
 			if(result instanceof Error) {
 				alert(`${result.name} - ${result.message}`);
 			}else {
-				let newPhotoList = [...photos];
+				const newPhotoList = [...photos];
 				newPhotoList.push(result);
 				setPhotos(newPhotoList);
 			}
